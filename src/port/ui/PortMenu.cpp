@@ -379,6 +379,10 @@ void PortMenu::AddEnhancements() {
 
     AddWidget(path, "Harder CPU", WIDGET_CVAR_CHECKBOX).CVar("gHarderCPU");
 
+    AddWidget(path, "Show Spaghetti version", WIDGET_CVAR_CHECKBOX)
+        .CVar("gShowSpaghettiVersion")
+        .Options(CheckboxOptions().Tooltip("Show the Spaghetti Kart version on the Mario Kart menu").DefaultValue(true));
+
     path = { "Enhancements", "Cheats", SECTION_COLUMN_1 };
     AddSidebarEntry("Enhancements", "Cheats", 3);
     AddWidget(path, "Moon Jump", WIDGET_CVAR_CHECKBOX).CVar("gEnableMoonJump");
@@ -438,6 +442,9 @@ void PortMenu::AddDevTools() {
         .Options(CheckboxOptions().Tooltip("Changes the menu display from overlay to windowed."));
     AddWidget(path, "Debug Mode", WIDGET_CVAR_CHECKBOX)
         .CVar("gEnableDebugMode")
+        .Callback([](WidgetInfo& info) {
+            SPDLOG_INFO(CVarGetInteger("gEnableDebugMode", 0) == 0 ? "Debug Mode deactivated" : "Debug Mode activated");
+        })
         .Options(CheckboxOptions().Tooltip("Enables Debug Mode."));
     AddWidget(path, "Modify Interpolation Target FPS", WIDGET_CVAR_CHECKBOX)
         .CVar("gModifyInterpolationTargetFPS")
