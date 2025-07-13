@@ -3498,7 +3498,7 @@ Gfx* draw_box_fill_wide(Gfx* displayListHead, s32 ulx, s32 uly, s32 lrx, s32 lry
     gSPDisplayList(displayListHead++, D_02008030);
     gDPSetFillColor(displayListHead++, (GPACK_RGBA5551(red, green, (u32) blue, alpha) << 0x10 |
                                         GPACK_RGBA5551(red, green, (u32) blue, alpha)));
-    gDPFillWideRectangle(displayListHead++, OTRGetDimensionFromLeftEdge(ulx), uly, OTRGetDimensionFromRightEdge(lrx),
+    gDPFillWideRectangle(displayListHead++, OTRGetDimensionFromLeftEdge(ulx) - 1, uly, OTRGetDimensionFromRightEdge(lrx) + 1,
                          lry);
     gDPFillRectangle(displayListHead++, ulx, uly, lrx, lry);
     gSPDisplayList(displayListHead++, D_02008058);
@@ -8725,8 +8725,8 @@ void func_800A6154(MenuItem* arg0) {
         pause_menu_item_box_cursor(arg0, &sp6C);
     }
     if (arg0->param2 > 0) {
-        gDisplayListHead = func_80098FC8(gDisplayListHead, 0, 0, 0x0000013F, arg0->param2);
-        gDisplayListHead = func_80098FC8(gDisplayListHead, 0, 0xEF - arg0->param2, 0x0000013F, 0x000000EF);
+        gDisplayListHead = func_80098FC8_wide(gDisplayListHead, 0, 0, 0x0000013F, arg0->param2);
+        gDisplayListHead = func_80098FC8_wide(gDisplayListHead, 0, 0xEF - arg0->param2, 0x0000013F, 0x000000EF);
     }
 }
 
