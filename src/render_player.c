@@ -585,7 +585,8 @@ void render_players_on_screen_one(void) {
 
 s32 junk[] = { 0, 0, 0 };
 
-Vtx* gPlayerVtx[] = { gPlayerOneVtx, gPlayerTwoVtx, gPlayerThreeVtx, gPlayerFourVtx, gPlayerFiveVtx, gPlayerSixVtx, gPlayerSevenVtx, gPlayerEightVtx };
+Vtx* gPlayerVtx[] = { gPlayerOneVtx,  gPlayerTwoVtx, gPlayerThreeVtx, gPlayerFourVtx,
+                      gPlayerFiveVtx, gPlayerSixVtx, gPlayerSevenVtx, gPlayerEightVtx };
 
 f32 gCharacterSize[] = { MARIO_SIZE, LUIGI_SIZE, YOSHI_SIZE, TOAD_SIZE, DK_SIZE, WARIO_SIZE, PEACH_SIZE, BOWSER_SIZE };
 
@@ -1807,7 +1808,6 @@ void func_80025DE8(Player* player, s8 playerId, s8 screenId, s8 flipOffset) {
 
     FrameInterpolation_RecordOpenChild("player_boost", playerId | screenId << 8);
 
-
     mtxf_translate_rotate(mtx, sp9C, sp94);
     mtxf_scale(mtx, gCharacterSize[player->characterId] * player->size);
     // convert_to_fixed_point_matrix(&gGfxPool->mtxEffect[gMatrixEffectCount], mtx);
@@ -1921,7 +1921,8 @@ void render_player(Player* player, s8 playerId, s8 screenId) {
         func_80025DE8(player, playerId, screenId, var_v1);
     }
     // Allows wheels to spin
-    if (GameEngine_ResourceGetTexTypeByName(sKartTexture) == 6 || GameEngine_ResourceGetTexTypeByName(sKartTexture) == 5) { // only invalidate texture cache if it's a palette texture
+    if (GameEngine_ResourceGetTexTypeByName(sKartTexture) !=
+        1) { // only invalidate texture cache if it's a palette texture
         gSPInvalidateTexCache(gDisplayListHead++, sKartTexture);
     }
 }
