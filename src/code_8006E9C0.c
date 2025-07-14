@@ -513,6 +513,24 @@ Vtx cloudvtx[4][4] = { {
                            { { { -32, 15, 0 }, 0, { 0, 2032 }, { 255, 255, 255, 255 } } },
                        } };
 
+Vtx cloudvtx2[3][4] = { {
+                            { { { -32, -16, 0 }, 0, { 0, -32 }, { 255, 255, 255, 255 } } },
+                            { { { 31, -16, 0 }, 0, { 4032, -32 }, { 255, 255, 255, 255 } } },
+                            { { { 31, 15, 0 }, 0, { 4032, 662 }, { 255, 255, 255, 255 } } },
+                            { { { -32, 15, 0 }, 0, { 0, 662 }, { 255, 255, 255, 255 } } },
+                        },
+                        {
+                            { { { -32, -16, 0 }, 0, { 0, 682 }, { 255, 255, 255, 255 } } },
+                            { { { 31, -16, 0 }, 0, { 4032, 682 }, { 255, 255, 255, 255 } } },
+                            { { { 31, 15, 0 }, 0, { 4032, 1324 }, { 255, 255, 255, 255 } } },
+                            { { { -32, 15, 0 }, 0, { 0, 1324 }, { 255, 255, 255, 255 } } },
+                        },
+                        {
+                            { { { -32, -16, 0 }, 0, { 0, 1335 }, { 255, 255, 255, 255 } } },
+                            { { { 31, -16, 0 }, 0, { 4032, 1335 }, { 255, 255, 255, 255 } } },
+                            { { { 31, 15, 0 }, 0, { 4032, 2027 }, { 255, 255, 255, 255 } } },
+                            { { { -32, 15, 0 }, 0, { 0, 2027 }, { 255, 255, 255, 255 } } },
+                        } };
 void init_cloud_object(s32 objectIndex, s32 arg1, CloudData* arg2) {
     ItemWindowObjects* temp_v0;
 
@@ -528,7 +546,13 @@ void init_cloud_object(s32 objectIndex, s32 arg1, CloudData* arg2) {
         func_80073404(objectIndex, 0x40U, 0x20U, D_0D005FB0);
     } else {
         temp_v0->activeTexture = CM_GetProps()->CloudTexture;
-        func_80073404(objectIndex, 0x40U, 0x20U, cloudvtx[arg2->subType]);
+        if (strcmp(CM_GetProps()->CloudTexture, gTextureExhaust0) == 0 ||
+            strcmp(CM_GetProps()->CloudTexture, gTextureExhaust1) == 0 ||
+            strcmp(CM_GetProps()->CloudTexture, gTextureExhaust2) == 0) {
+            func_80073404(objectIndex, 0x40U, 0x20U, cloudvtx2[arg2->subType]);
+        } else {
+            func_80073404(objectIndex, 0x40U, 0x20U, cloudvtx[arg2->subType]);
+        }
     }
     temp_v0->primAlpha = 0x00FF;
 }
