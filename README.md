@@ -1,14 +1,31 @@
 ![Spaghetti Kart](docs/spaghettigithublight.png#gh-light-mode-only)
 ![Spaghetti Kart](docs/spaghettigithubnight.png#gh-dark-mode-only)
 
-## Help Wanted!
-This project is looking for a C or C++ coder interested in making a couple scrollable menus that can have lots of items in it. As a method to display custom content does not exist. A tick/render system for custom menus already exists. So just someone willing to build out the menu.
+Spaghetti Kart in VR! (DX11 Only)
 
-## Discord
+# Thank you ShinyWindow for your work in Ship of Harkinian VR and libultraship-vr
+* [**Shipwright-VR**](https://github.com/ShinyWindow/Shipwright-VR)
+* [**libultraship-vr**](https://github.com/ShinyWindow/libultraship-vr)
 
-Official Discord: https://discord.com/invite/shipofharkinian
 
-If you're having any trouble after reading through this `README`, feel free ask for help in the SpaghettiKart Support text channels. Please keep in mind that we do not condone piracy.
+## Important Information For VR
+
+* Must only use DirectX11, if you're using OpenGL, it won't work.
+* You must run the game window in a 4:3 aspect ratio.
+* You must have MSAA disabled.
+* You must leave Internal Resolution at 100%.
+* You must not toggle "Enable advanced settings" while playing.
+
+#### To set the window size up for a larger resolution:
+1. Temporarily enable advanced settings under Settings/Graphics
+2. Set the aspect ratio to 4:3
+3. Adjust your window size so that the image takes up the whole window and there are no black regions
+4. Disable advanced settings
+
+#### Problems `Please help!`
+* Text/HUD not yet working in VR.
+* Imgui does not render in VR.
+
 
 # Quick Start
 
