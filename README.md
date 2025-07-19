@@ -1,9 +1,9 @@
 ![Spaghetti Kart](docs/spaghettigithublight.png#gh-light-mode-only)
 ![Spaghetti Kart](docs/spaghettigithubnight.png#gh-dark-mode-only)
 
-Spaghetti Kart in VR! (DX11 Only)
+Spaghetti Kart in VR! (Windows DX11 Only)
 
-# Thank you ShinyWindow for your work in Ship of Harkinian VR and libultraship-vr
+# Thank you ShinyWindow for your work on the original Ship of Harkinian VR and libultraship-vr
 * [**Shipwright-VR**](https://github.com/ShinyWindow/Shipwright-VR)
 * [**libultraship-vr**](https://github.com/ShinyWindow/libultraship-vr)
 
